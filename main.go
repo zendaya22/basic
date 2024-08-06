@@ -26,4 +26,8 @@ func main(){
 	fmt.Println("Out fleet consists of", total_cars, "cars")
 	fmt.Printf("Our prices start at %v\n", startingPrice)
 	fmt.Println("take your pick")
+
+	insuranceIncluded := false
+	fmt.Println(insuranceIncluded)
+	
 }
