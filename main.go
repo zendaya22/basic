@@ -15,9 +15,9 @@ func main() {
 
 	a := 2
 	b := 3
-
+	c := 4
 	fmt.Println("a = ", a, "b = ",b)
-	
+	fmt.Println(c)
 	swap(&a, &b)
 	
 	fmt.Println("a = ", a, "b = ",b)
