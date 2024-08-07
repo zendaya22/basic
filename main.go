@@ -5,9 +5,37 @@ import (
 )
 
 func main() {
-	var tempInt int = 10
-	var tempFloat float64 = float64(tempInt)
-	fmt.Println(tempFloat)
-	fmt.Printf("integer to float %.1f\n", 10.0)
+	// constant
+
+	const agency string = "Fast Tracks"
+	fmt.Println(agency)
+
+	// multiple 
+
+	const (
+		founded = 2001
+		founder = "james bond"
+	)
+
+	fmt.Println(founded, founder)
+	
+	// iota
+	
+	const (
+		_ = iota
+		Economy 
+		Compact
+		Standard
+		Fullsize
+		Luxury
+	)
+
+	fmt.Println("lv :", Economy)
+	fmt.Println("lv :",Compact)
+	fmt.Println("lv :",Standard)
+	fmt.Println("lv :",Fullsize)
+	fmt.Println("lv :",Luxury)
+
+
 
 }
