@@ -3,39 +3,14 @@ package main
 import (
 	"fmt"
 )
+// pointer
 
 func main() {
-	// constant
-
-	const agency string = "Fast Tracks"
-	fmt.Println(agency)
-
-	// multiple 
-
-	const (
-		founded = 2001
-		founder = "james bond"
-	)
-
-	fmt.Println(founded, founder)
 	
-	// iota
+	fmt.Println("pointer")
+	var a *int
 	
-	const (
-		_ = iota
-		Economy 
-		Compact
-		Standard
-		Fullsize
-		Luxury
-	)
 
-	fmt.Println("lv :", Economy)
-	fmt.Println("lv :",Compact)
-	fmt.Println("lv :",Standard)
-	fmt.Println("lv :",Fullsize)
-	fmt.Println("lv :",Luxury)
-
-
+	fmt.Println(&a)
 
 }
