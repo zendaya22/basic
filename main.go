@@ -1,24 +1,22 @@
 package main
 
-import (
-	"fmt"
-)
-// pointer
+import "fmt"
 
-func swap(a *int, b *int){
-	var temp int = *a
-	*a = *b
-	*b = temp
+// function as parameter
+
+func odd(a int) bool {
+	return a%2 != 0
+}
+
+func try(a int, checkOdd func(a int) bool) string {
+	check := checkOdd(a)
+	if check {
+		return "odd"
+	}
+	return "even"
 }
 
 func main() {
-
-	a := 2
-	b := 3
-	c := 4
-	fmt.Println("a = ", a, "b = ",b)
-	fmt.Println(c)
-	swap(&a, &b)
-	
-	fmt.Println("a = ", a, "b = ",b)
+	result := try(10, odd)
+	fmt.Println(result)
 }
