@@ -1,22 +1,48 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
 
-// function as parameter
+)
 
-func odd(a int) bool {
-	return a%2 != 0
+type profile struct {
+	name string
+	age int
+	address string
+	sosmed string
+	contact string
 }
 
-func try(a int, checkOdd func(a int) bool) string {
-	check := checkOdd(a)
-	if check {
-		return "odd"
+type account struct{
+	*profile
+	username string
+	password int
+}
+
+func getUser(p profile){
+	fmt.Println(p.name)
+	fmt.Println(p.age)
+	fmt.Println(p.address)
+	fmt.Println(p.contact)
+}
+
+
+
+func main(){
+
+	user := profile{
+		name: "dimas",
+		age: 20,
+		address: "bumijawa",
+		contact: "081717316596",
 	}
-	return "even"
-}
 
-func main() {
-	result := try(10, odd)
-	fmt.Println(result)
+	acc := account{
+		profile: &user,
+		username: "dimas anjay mabar",
+		password: 11212,
+	}
+
+	getUser(user)
+	fmt.Println(*acc.profile)
 }
