@@ -1,29 +1,26 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"runtime"
+	"time"
+)
 
-type Car struct{
-	Name string
-	Color string
-}
 
-func (c Car) getName()string{
-	return c.Name
-}
-
-func (c Car) SayHello(){
-	fmt.Println("Hello dari", c.Name, c.Color)
+func speak(total int, message string){
+	for i := 0; i < total; i++ {
+		fmt.Println("Speak", message, "- (", i+1, ")")
+	}
 }
 
 func main() {
-	car := Car{
-		Name: "audy",
-		Color: "blue",
-	}
 
-	name := car.getName()
-	fmt.Println(name)
-	car.SayHello()
+	runtime.GOMAXPROCS(runtime.NumCPU())
+	fmt.Println("running goroutine", runtime.NumCPU(), "cpu")
 	
+	go speak(2, "goroutine 1")
+	go speak(2, "goroutine 2")
+	go speak(2, "goroutine 3")
+	time.Sleep(1 * time.Second)
 
 }
