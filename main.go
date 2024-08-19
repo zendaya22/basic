@@ -2,30 +2,27 @@ package main
 
 import "fmt"
 
-func main(){
-    // Diberikan sebuah array seperti berikut :
-    animals := [...]string{"Cat", "Dog", "Pinguin", "Chicken", "Snake"}
+type Fruits struct{
+	Name string
+	Weight int
+}
 
-    // Lalu, lengkapi variable variable berikut sesuai dengan expected-nya :
-    mammals := animals[:2]     // expected : {Cat, Dog}
-    notMammals := animals[2:]  // expected : {Pinguin, Chicken, Snake}
-    haveLegs := animals[:4]    // expeccted : {Cat, Dog, Pinguin, Chicken}
+func main() {
+	var fruit1 = Fruits{
+		Name: "banana",
+		Weight: 20,
+	}
 
-    // Setelah itu, lakukan hal berikut :
-    // 1. Ubah value Dog menjadi Cow
-    // 2. Ubah value Pinguin menjadi Bird
+	fruit2 := Fruits{
+		Name: "apple",
+		Weight: 30,
+	}
 
-    // dimulai dari sini
-	animals[1] = "Cow"
-	animals[2] = "Bird"
-	
+	fruit3 := Fruits{"mango", 20}
+
+	fmt.Println(fruit1)
+	fmt.Println(fruit2)
+	fmt.Println(fruit3)
 
 
-    // berakhir disini
-
-    // Saat di print, harusnya hasilnya sesuai dengan expected
-    fmt.Println(mammals)    // expected : {Cat, Cow}
-    fmt.Println(notMammals) // expected : {Bird, Chicken, Snake}
-    fmt.Println(haveLegs)   // expected : {Cat, Cow, Bird, Chicken}
-    
 }
