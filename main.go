@@ -1,38 +1,31 @@
 package main
 
 import (
-	"fmt"
-	"runtime"
+	"log"
 	"sync"
 )
 
-
-func speak(total int, message string, wg *sync.WaitGroup){
-
-	if wg != nil {
-		defer wg.Done()
+func calculate(nums ...int) (total int) {
+	for _, n := range nums {
+		total += n
 	}
-
-	for i := 0; i < total; i++ {
-		fmt.Println("Speak", message, "- (", i+1, ")")
-	}
+	return
 }
 
 func main() {
-
 	wg := sync.WaitGroup{}
+	total := 0
+	nums := []int{1, 2, 3, 4, 5}
+	wg.Add(1)
+	go func(numbers ...int) {
+		// nilai total akan di overwrite disini
+		total = calculate(numbers...)
+		wg.Done()
+	}(nums...)
 
-	runtime.GOMAXPROCS(runtime.NumCPU())
-	fmt.Println("running goroutine", runtime.NumCPU(), "cpu")
-	wg.Add(3)
-	go speak(2, "goroutine 1", &wg)
-	go speak(2, "goroutine 2", &wg)
-	go speak(2, "goroutine 3", &wg)
-	
-
+	// prose menunggu sampai goroutine selesai
 	wg.Wait()
 
-	fmt.Println("done")
-
-
+	// menampilkan nilai total
+	log.Println(total)
 }
