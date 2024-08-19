@@ -2,27 +2,28 @@ package main
 
 import "fmt"
 
-type Fruits struct{
+type Car struct{
 	Name string
-	Weight int
+	Color string
+}
+
+func (c Car) getName()string{
+	return c.Name
+}
+
+func (c Car) SayHello(){
+	fmt.Println("Hello dari", c.Name, c.Color)
 }
 
 func main() {
-	var fruit1 = Fruits{
-		Name: "banana",
-		Weight: 20,
+	car := Car{
+		Name: "audy",
+		Color: "blue",
 	}
 
-	fruit2 := Fruits{
-		Name: "apple",
-		Weight: 30,
-	}
-
-	fruit3 := Fruits{"mango", 20}
-
-	fmt.Println(fruit1)
-	fmt.Println(fruit2)
-	fmt.Println(fruit3)
-
+	name := car.getName()
+	fmt.Println(name)
+	car.SayHello()
+	
 
 }
