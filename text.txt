@@ -1,3 +1,2 @@
-Ini adalah sebuah text yang berada pada file text.txt
-Anggap saja file ini lumayan gede, jadi membutuhkan waktu lumayan
-lama untuk membaca nya
+halo iam dimas a pasionate backend engginer from indonesia
+ you can call me dimas

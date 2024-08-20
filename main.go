@@ -1,40 +1,19 @@
 package main
 
 import (
-	"io"
-	"log"
+	"fmt"
 	"os"
-	"time"
 )
 
 func main(){
-	f, _ := os.Open("text.txt")
+	defer fmt.Println("success generate text")
+	text := "halo iam dimas a pasionate backend engginer from indonesia\n you can call me dimas"
 
-	chunkSize := 15
+	textBytes := []byte(text)
 
-	text := ""
+	err := os.WriteFile("text.txt", textBytes, 0666)
 
-	for {
-		chunk := make([]byte, chunkSize)
-
-		bytesRead, err := f.Read(chunk)
-		if err != nil {
-			if err == io.EOF {
-				break
-			}
-		}
-
-		if bytesRead == 0 {
-			break
-		}
-
-		log.Println(string(chunk))
-		
-		text += string(chunk)
-		time.Sleep(2 * time.Second)
+	if err != nil {
+		panic(err)
 	}
-	
-	f.Close()
-	log.Println(text)
-	
 }
