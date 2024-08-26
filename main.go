@@ -2,23 +2,18 @@ package main
 
 import (
 	"fmt"
+	"os"
 )
-// pointer
 
-func swap(a *int, b *int){
-	var temp int = *a
-	*a = *b
-	*b = temp
-}
+func main(){
+	defer fmt.Println("success generate text")
+	text := "halo iam dimas a pasionate backend engginer from indonesia\n you can call me dimas"
 
-func main() {
+	textBytes := []byte(text)
 
-	a := 2
-	b := 3
+	err := os.WriteFile("text.txt", textBytes, 0666)
 
-	fmt.Println("a = ", a, "b = ",b)
-	
-	swap(&a, &b)
-	
-	fmt.Println("a = ", a, "b = ",b)
+	if err != nil {
+		panic(err)
+	}
 }
