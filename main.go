@@ -10,7 +10,9 @@ func swap(a *int, b *int){
 	*a = *b
 	*b = temp
 }
-
+func add(a int, b int)int{
+	return a + b
+}
 func main() {
 
 	a := 2
